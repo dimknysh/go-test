@@ -49,18 +49,18 @@ func uniqueElements(a, b []int) ([]int, []int) {
 
 func uniqueAll(a, b []int) []int {
 	uniqA, uniqB := uniqueElements(a, b)
-	intersectMap := make(map[int]int)
+	resultMap := make(map[int]int)
 	var result []int
 
 	for _, elA := range uniqA {
-		intersectMap[elA] = 0
+		resultMap[elA] = 0
 	}
 
 	for _, elB := range uniqB {
-		intersectMap[elB] = 0
+		resultMap[elB] = 0
 	}
 
-	for i := range intersectMap {
+	for i := range resultMap {
 		result = append(result, i)
 	}
 
