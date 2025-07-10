@@ -25,6 +25,14 @@ import "fmt"
 
 */
 
+func main() {
+	var a, b = []int{5, 1, 2}, []int{4, 2, 5, 1, 1, 2}
+
+	fmt.Println(uniqueElements(a, b))
+	fmt.Println(intersect(a, b))
+	fmt.Println(uniqueAll(a, b))
+}
+
 func uniqueElements(a, b []int) ([]int, []int) {
 	uniqueMapA, uniqueMapB := make(map[int]int), make(map[int]int)
 	var uniqueA, uniqueB []int
@@ -48,19 +56,18 @@ func uniqueElements(a, b []int) ([]int, []int) {
 }
 
 func uniqueAll(a, b []int) []int {
-	uniqA, uniqB := uniqueElements(a, b)
-	resultMap := make(map[int]int)
+	uniqueMap := make(map[int]int)
 	var result []int
 
-	for _, elA := range uniqA {
-		resultMap[elA] = 0
+	for _, elA := range a {
+		uniqueMap[elA] = 0
 	}
 
-	for _, elB := range uniqB {
-		resultMap[elB] = 0
+	for _, elB := range b {
+		uniqueMap[elB] = 0
 	}
 
-	for i := range resultMap {
+	for i := range uniqueMap {
 		result = append(result, i)
 	}
 
@@ -82,12 +89,4 @@ func intersect(a, b []int) []int {
 	}
 
 	return result
-}
-
-func main() {
-	var a, b = []int{5, 1, 2}, []int{4, 2, 5, 1, 1, 2}
-
-	fmt.Println(uniqueElements(a, b))
-	fmt.Println(intersect(a, b))
-	fmt.Println(uniqueAll(a, b))
 }
