@@ -36,6 +36,7 @@ func main() {
 func uniqueElements(a, b []int) ([]int, []int) {
 	uniqueMapA, uniqueMapB := make(map[int]int), make(map[int]int)
 	var uniqueA, uniqueB []int
+
 	for _, elA := range a {
 		uniqueMapA[elA] = 0
 	}
@@ -76,6 +77,7 @@ func uniqueAll(a, b []int) []int {
 
 func intersect(a, b []int) []int {
 	countA := make(map[int]int)
+
 	for _, v := range a {
 		countA[v]++
 	}
